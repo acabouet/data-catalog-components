@@ -69,7 +69,8 @@ export default function withResource(
               resolve(store);
               })
           } else {
-            let store = new datastore['file'](data.data.downloadURL);
+            let downloadUrl = data.data.downloadURL || data.data.accessURL;
+            let store = new datastore['file'](downloadUrl);
             store.query(null, null, null, 0, null, null, true)
               .then((data) => {
                 if (data) {
@@ -110,26 +111,34 @@ export default function withResource(
       const { data, rootUrl } = this.props;
       let columns = null;
 
-      if (data.identifier !== undefined) {
-        await axios.get(`${rootUrl}/datastore/imports/${data.identifier}`)
-          .then((response) => {
-            this.columns = response.data.columns ? response.data.columns : [];
-            columns = this.columns;
-            this.setState({
-              dataInfo: {
-                columns,
-                data: data.data,
-                datastore_statistics: {
-                  rows: response.data.numOfRows,
-                  columns: response.data.numOfColumns,
-                },
-                indentifier: data.identifier,
-              },
-            });
-          })
-          .catch((error) => (
-            console.log(error)
-          ));
+      if (data.identifier !== undefined && data.data.mediaType === 'text/csv') {
+        // await axios.get(`${rootUrl}/datastore/imports/${data.identifier}`)
+        //   .then((response) => {
+        //     this.columns = response.data.columns ? response.data.columns : [];
+        //     columns = this.columns;
+        //     this.setState({
+        //       dataInfo: {
+        //         columns,
+        //         data: data.data,
+        //         datastore_statistics: {
+        //           rows: response.data.numOfRows,
+        //           columns: response.data.numOfColumns,
+        //         },
+        //         indentifier: data.identifier,
+        //       },
+        //     });
+        //   })
+        //   .catch((error) => (
+        //     console.log(error)
+        //   ));
+        this.setState({
+          dataInfo: {
+            columns: [],
+            data: data.data,
+            indentifier: data.identifier
+          }
+        });
+
       }
       let store = await this.getStore();
       if (columns === null) {
