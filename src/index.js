@@ -43,6 +43,7 @@ export { default as Tags } from './components/Tags';
 export { default as Text } from './components/Text';
 export { default as Title } from './components/Title';
 export { default as ToggleBlock } from './components/ToggleBlock';
+export { default as TopicImage } from './components/TopicImage';
 export { default as withSearch } from './components/Search/withSearch';
 export { default as withResource } from './components/Resource/withResource';
 
