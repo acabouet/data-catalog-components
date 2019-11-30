@@ -5,7 +5,6 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   padding: 1em;
   position: relative;
-  text-align: center;
   border: 1px solid ${props => props.theme.borderColor};
   margin-bottom: 32px;
   background: #fff;
@@ -29,19 +28,24 @@ const Wrapper = styled.div`
 
 function Organization(props) {
   const { name, description, identifier, imageUrl } = props;
+  const alignment = props.alignment ? props.alignment : 'center';
   const image = <img alt={name || "Organization Image"} src={imageUrl} />;
 
   const link = `search?publisher=${identifier}`;
 
   return (
-    <Wrapper>
+    <Wrapper style={{ textAlign: alignment }}>
       <div className="org-image" alt="Organization Logo">
         {image}
       </div>
       <h3 className="org-name">
         {name}
       </h3>
-      {description}
+      {description &&
+        <div className="org-description">
+          {description}
+        </div>
+      }
     </Wrapper>
   );
 }

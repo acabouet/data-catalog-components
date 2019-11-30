@@ -15,7 +15,7 @@ const Branding = styled.div`
     margin: 1em 0;
     i {
       font-size: 25px;
-      opacity: 0.3;
+      opacity: 0.5;
       margin: 0 1em 1em 0;
       &:hover {
         opacity: 1;

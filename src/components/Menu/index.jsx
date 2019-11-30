@@ -13,15 +13,18 @@ class Menu extends Component {
     const classes = `${this.props.className} ${direction}`
 
     return (
-      <Wrapper className={classes} aria-label={this.props.className}>
+      <Wrapper 
+        className={classes}
+        aria-label={this.props.menuId}
+        id={this.props.menuId} 
+      >
         { heading ? <h3>{heading}</h3> : '' }
-        <ul role="menu">
+        <ul>
         {
-          this.props.items.map(function(item) {
+          this.props.items.map(function(item, i) {
             return (
-              <li key={item.url} role="none">
+              <li key={item.url}>
                 <Link 
-                  role="menu-item" 
                   href={item.url} 
                   target={item.target} 
                   className="menu-item">
@@ -40,14 +43,16 @@ class Menu extends Component {
 Menu.defaultProps = {
   items: [],
   className: "navigation-menu",
-  target: "_top"
+  target: "_top",
+  menuId: "menu"
 };
 
 Menu.propTypes = {
   items: PropTypes.any,
   className: PropTypes.any,
   title: PropTypes.string,
-  horizontal: PropTypes.bool
+  horizontal: PropTypes.bool,
+  id: PropTypes.string
 };
 
 export default Menu
