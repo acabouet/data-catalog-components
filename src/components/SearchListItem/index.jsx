@@ -21,7 +21,9 @@ const SearchListItem = ({
     if(typeof distribution === 'object') {
       distribution = Object.entries(distribution);
       return distribution.map((dist) => {
-        const format = (dist[1] === undefined) ? '' : dist[1].format.toLowerCase();
+        const type = dist[1].mediaType ? dist[1].mediaType.split('/') :'';
+        const backup = type ? type[1] : 'data';
+        const format = (dist.format) ? dist.format : backup;
         return (
           <div title={`format: ${dist.format}`}
             key={`dist-id-${identifier}-${Math.random() * 10}`}
@@ -34,7 +36,9 @@ const SearchListItem = ({
 
     if(Array.isArray(distribution)) {
       return distribution.map((dist) => {
-        const format = (dist.format === undefined) ? '' : dist.format.toLowerCase();
+        const type = dist.mediaType ? dist.mediaType.split("/") : '';
+        const backup = type ? type[1] : 'data';
+        const format = (dist.format) ? dist.format : backup;
         return (
           <div title={`format: ${dist.format}`}
             key={`dist-id-${identifier}-${Math.random() * 10}`}
@@ -53,14 +57,27 @@ const SearchListItem = ({
       return theme.map((topic) => {
         return(
           <Link
-            key={`dist-${topic.identifier}-${Math.random() * 10}`}
-            to={"search?topics=" + topic.title}
+            key={`dist-${topic}-${Math.random() * 10}`}
+            to={"search?topics=" + topic}
           >
-            <TopicImage title={topic.title} height="16" width="16"/>
-            {topic.title}
+            <TopicImage title={topic} height="16" width="16"/>
+            {topic}
           </Link>
         );
       })
+    }
+  }
+
+  function publishers(publisher) {
+    if (!publisher) {
+      return null;      
+    } else {
+        return (
+          <span>
+            <DataIcon icon="group" height="20" width="20" />
+            {publisher}
+          </span>
+        );
     }
   }
 
@@ -68,12 +85,10 @@ const SearchListItem = ({
     <Wrapper className={className}>
       <h2><Link to={ref}>{title}</Link></h2>
       
-      {(publisher && publisher.name !== undefined) &&
+      {publisher !== 'undefined' &&
         <div className="item-publisher">
-          <DataIcon icon="group" height="20" width="20"/>
-          <Text tag="i" value={publisher.name} />
+          {publishers(publisher)}
         </div>
-
       }
 
       {theme &&
