@@ -23,7 +23,6 @@ const Wrapper = styled.li`
   }
   .item-publisher {
     color: ${props => props.theme.grayMedium};
-    font-style: italic;
     margin: .5em 0;
     svg {
       margin-right: 1rem;

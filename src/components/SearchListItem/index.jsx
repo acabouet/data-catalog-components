@@ -25,7 +25,7 @@ const SearchListItem = ({
         const backup = type ? type[1] : 'data';
         const format = (dist.format) ? dist.format : backup;
         return (
-          <div title={`format: ${dist.format}`}
+          <div title={`format: ${format}`}
             key={`dist-id-${identifier}-${Math.random() * 10}`}
             className="label"
             data-format={format}>{format}
@@ -40,7 +40,7 @@ const SearchListItem = ({
         const backup = type ? type[1] : 'data';
         const format = (dist.format) ? dist.format : backup;
         return (
-          <div title={`format: ${dist.format}`}
+          <div title={`format: ${format}`}
             key={`dist-id-${identifier}-${Math.random() * 10}`}
             className="label"
             data-format={format}>{format}

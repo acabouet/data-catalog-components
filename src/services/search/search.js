@@ -85,7 +85,7 @@ class Search {
       return [];
     }
     if ((typeof doc) == 'object') {
-      if(doc.data !== undefined && doc.title === undefined) {
+      if(doc.data !== undAdefined && doc.title === undefined) {
         doc.title = doc.data;
       }
       const pieces = field.split('.');
@@ -120,6 +120,9 @@ class Search {
         return [];
       }
     } else {
+      // const pieces = field.split('.');
+      // const current = pieces.shift();
+
       return [];
     }
   }

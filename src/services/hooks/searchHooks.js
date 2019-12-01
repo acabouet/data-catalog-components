@@ -69,7 +69,7 @@ export function useSearchData(
           title: x.title,
           ref: `/dataset/${x.identifier}`,
         };
-        if (Object.prototype.hasOwnProperty.call(x, 'publisher') && Object.prototype.hasOwnProperty.call(x, 'name')) {
+        if (Object.prototype.hasOwnProperty.call(x, 'publisher') && Object.prototype.hasOwnProperty.call(x.publisher, 'name')) {
           item.publisher = x.publisher.name;
         } else {
           item.publisher = '';

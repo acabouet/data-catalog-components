@@ -45,6 +45,7 @@ const defaultTheme = {
   pdfIcon: '#e0051e',
   xmlIcon: '#5e962c',
   zipIcon: '#3B0053',
+  htmlIcon: '#1c82b8',
   dataIcon: '#666666',
 };
 
