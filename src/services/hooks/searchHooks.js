@@ -3,6 +3,26 @@ import axios from 'axios';
 import queryString from 'query-string';
 import search from '../search/search';
 
+export function useSimpleSearch(url, defaultFacets) {
+  const [searchEngine, setSearchEngine] = React.useState();
+  React.useEffect(() => {
+    // eslint-disable-next-line dot-notation
+    const newSearchEngine = new search['simpleSearch']();
+    async function fetchSearchIndex() {
+      const data = await axios.get(url);
+      return data;
+    }
+    async function initSearchEngine() {
+      const { data } = await fetchSearchIndex();
+      await newSearchEngine.init(data, defaultFacets);
+      await setSearchEngine(newSearchEngine);
+    }
+    initSearchEngine();
+  }, [url, defaultFacets]);
+
+  return searchEngine;
+}
+
 export function useLunrSearch(url, defaultFacets) {
   const [searchEngine, setSearchEngine] = React.useState();
   React.useEffect(() => {
