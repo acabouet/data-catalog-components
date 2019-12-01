@@ -365,7 +365,7 @@ export class simpleSearch extends Search {
 
   async init(data, facets = null) {
     this.facets = facets;
-    this.index = data.docs.map((item) => item.doc);
+    this.index = data.map((item) => item);
   }
 
   async getAll(index) {
