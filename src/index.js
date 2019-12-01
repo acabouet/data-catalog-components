@@ -75,6 +75,7 @@ export {
 export {
   useSearchData,
   useLunrSearch,
+  useSimpleSearch,
   useFacetTypes,
   useUrlParams,
   useFilteredFacets,
