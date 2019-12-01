@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 const ModalWrapper = styled.div`
-  .advanced-options-modal-close {
+  .fullscreen-modal-close {
       background: none;
+      border: none;
       padding-left: 0;
       text-decoration: none;
       &::before {

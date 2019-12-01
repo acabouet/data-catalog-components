@@ -47,7 +47,6 @@ const FullScreenResource = ({
                   className={closeModalClasses}
                   onClick={() => toggleModal(!modalOpen)}
                 >
-                  <i className="fa fa-2x fa-times" aria-hidden="true" />
                   <span className="sr-only">{closeModalBtnText}</span>
                 </button>
               </header>

@@ -53,7 +53,7 @@ const AdvancedOptions = ({
                   className={closeModalClasses}
                   onClick={() => toggleModal(!modalOpen)}
                 >
-                  {closeModalBtnText}
+                  <span>{closeModalBtnText}</span>
                 </button>
               </header>
 
@@ -79,7 +79,7 @@ const AdvancedOptions = ({
                     key="primary"
                     onClick={() => toggleModal(!modalOpen)}
                   >
-                    {actionText}
+                    <span>{actionText}</span>
                   </button>
                 </aside>
               )}
