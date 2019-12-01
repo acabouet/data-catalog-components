@@ -22,7 +22,7 @@ const FullScreenResource = ({
       {!modalOpen
         && <button type="button" onClick={() => toggleModal(!modalOpen)}>
           <i className="fa fa-2x fa-expand" aria-hidden="true" title="Full Screen" />
-          <span class="sr-only">{modalOpenBtnText}</span>
+          <span className="sr-only">{modalOpenBtnText}</span>
         </button>}
       {modalOpen
         && (
