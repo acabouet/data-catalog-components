@@ -174,9 +174,9 @@ DataTableHeader.defaultProps = {
     tableDensity: {
       hideDisplayDensity: false,
       items: [
-        { icon: <DataIcon name="density-1" height="20" width="20" icon="density-1" fill="#666666" />, text: 'expanded' },
-        { icon: <DataIcon name="density-2" height="20" width="20" icon="density-2" fill="#666666" />, text: 'normal' },
-        { icon: <DataIcon name="density-3" height="20" width="20" icon="density-3" fill="#666666" />, text: 'tight' },
+        { icon: <DataIcon name="density-1" height={20} width={20} icon={'density-1'} fill="#666666" />, text: 'expanded' },
+        { icon: <DataIcon name="density-2" height={20} width={20} icon={'density-2'} fill="#666666" />, text: 'normal' },
+        { icon: <DataIcon name="density-3" height={20} width={20} icon={'density-3'} fill="#666666" />, text: 'tight' }
       ],
       className: 'data-table-density',
       screenReaderClass: 'sr-only sr-only-focusable',
