@@ -60,15 +60,15 @@ export default function withResource(
         if (this.store !== null) {
           resolve(this.store);
         } else {
-          if (this.columns.length > 0) {
-            let store = new datastore['dkan'](data.identifier, this.columns, rootUrl);
-            store.query(null, null, null, 0, null, null, true)
-              .then((data) => {
-              this.store = store;
-              this.storeType = 'dkan'
-              resolve(store);
-              })
-          } else {
+          // if (this.columns.length > 0) {
+          //   let store = new datastore['dkan'](data.identifier, this.columns, rootUrl);
+          //   store.query(null, null, null, 0, null, null, true)
+          //     .then((data) => {
+          //     this.store = store;
+          //     this.storeType = 'dkan'
+          //     resolve(store);
+          //     })
+          // } else {
             let downloadUrl = data.data.downloadURL || data.data.accessURL;
             let store = new datastore['file'](downloadUrl);
             store.query(null, null, null, 0, null, null, true)
@@ -82,7 +82,7 @@ export default function withResource(
                   reject("No datastore available.")
                 }
               })
-          }
+          //}
         }
       });
     }
