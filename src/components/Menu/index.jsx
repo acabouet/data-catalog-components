@@ -23,7 +23,7 @@ class Menu extends Component {
         {
           this.props.items.map(function(item, i) {
             return (
-              <li key={item.url}>
+              <li key={i}>
                 <Link 
                   href={item.url} 
                   target={item.target} 
